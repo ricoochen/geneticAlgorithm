@@ -1,0 +1,135 @@
+<mvc:View
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="sap.ga.aps.controller.aps.apsCsszGltj" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+	<Page 
+		id="apsCsszGltj"
+		title="{i18n>apsCsszGltjPageTitle}"
+		showNavButton="true"
+		navButtonPress="onNavBack"
+		backgroundDesign="Solid"
+		class="sapUiResponsiveContentPadding">
+		<content>
+			<Panel
+				id="apsCsszGltjHeaderPanel"
+				width="auto"
+				class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>apsCsszGltjHeaderTitle}" level="H2"/>
+						<ToolbarSpacer />
+<!-- 						<Link text="{i18n>FlipToResume}" tooltip="{i18n>FlipToResume.tooltip}" press="onShowResume" /> -->
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm
+						editable="false"
+						width="auto"
+						layout="ResponsiveGridLayout"
+						labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+						columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="{i18n>apsCsszGltjWerks}"  class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+<!-- 						<Input id="apsCsszGltjWerks" width="auto"  class="sapUiSmallMarginCenter" required="true"/> -->
+							<ComboBox
+								id="apsCsszGltjWerks"
+								require="true"
+								showSecondaryValues= "true"
+								items="{
+									path: 'Plant>/plant',
+									sorter: { path: 'werks' }
+								}">
+								<core:ListItem key="{Plant>werks}" text="{Plant>bztxt}" additionalText = "{Plant>werks}"/>
+							</ComboBox>
+							<Label text="{i18n>apsCsszGltjFccode}"  class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+							<ComboBox
+								id="apsCsszGltjFccode"
+								press="onapsCsszGltjFccode"
+								showSecondaryValues= "true"
+								items="{
+									path: 'Fccode>/', 
+ 									sorter: { path: 'filterConditionCode' } 
+								}"> 
+								<core:ListItem key="{Fccode>filterConditionCode}" text="{Fccode>filterConditionText}" additionalText = "{Fccode>filterConditionCode}"/>
+							</ComboBox>
+						</f:content>
+						<Button	class="sapUiSmallMarginCenter" text="Continue"	press="onapsCsszGltjContinue" width="auto"/>						
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Table width="auto" noDataText="No data" id="apsCsszGltjTable" items="{path:'gltj>/'}">
+		        <items>
+		            <ColumnListItem type="Navigation" press="onItemPress" width="auto">
+		                <cells>
+		                    <Text text="{gltj>filterConditionCode}"/>
+		                    <Text text="{gltj>filterConditionText}"/>
+		                    <Text text="{gltj>groupId}"/>		                    
+		                    <Text text="{gltj>expression}"/>
+		                    <Text text="{gltj>aTBEZ}"/>
+		                    <Text text="{gltj>aTNAM}"/>
+		                    <Text text="{gltj>aTWRT}"/>
+		                    <Text text="{gltj>aTWTB}"/>
+		                </cells>
+		            </ColumnListItem>
+		        </items>
+		        <columns width="auto">
+		            <Column id="apsCsszGltjTbCode">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbCode}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszGltjTbText">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbText}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszGltjTbGroup">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbGroup}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszGltjTbExpre">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbExpre}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszGltjTbAtbez">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbAtbez}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszGltjTbAtnam">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbAtnam}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszGltjTbAtwrt">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbAtwrt}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszGltjTbAtwtb">
+		                <header>
+		                    <Label text="{i18n>apsCsszGltjTbAtwtb}"/>
+		                </header>
+		            </Column>
+		        </columns>
+	      	</Table>
+		</content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button icon="sap-icon://create" text="Create" press="onCreate"/>
+                    <Button icon="sap-icon://edit"	 text="Edit"   press="onEdit"/>
+                    <Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
+                </contentRight>
+            </Bar>
+        </footer>
+	</Page>
+	</App>
+</mvc:View>

@@ -1,0 +1,169 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "sap.ga.aps",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{title}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"invoiceRemote": {
+				"uri": "/serviceUrl/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri" : "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_hcw",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "sap.ga.aps.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.50.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.suite.ui.commons": {},
+				"sap.suite.ui.microchart": {}
+			}			
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ga.aps.i18n.i18n"
+				}
+			},
+			"apsNav": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/data/apsNav.json"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.ga.aps.view",
+				"controlId": "tutorialApp",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": [
+						"launchpad"
+					]
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "home",
+					"target": "startpage"
+				}, {
+					"pattern": "apsNav",
+					"name": "apsNav",
+					"target": "apsNav"
+				},{
+					"pattern": "apsCssz",
+					"name": "apsCssz",
+					"target": "apsCssz"
+				},{
+					"pattern": "apsCsszGltj",
+					"name": "apsCsszGltj",
+					"target": "apsCsszGltj"
+				},{
+					"pattern": "apsCsszYsgz",
+					"name": "apsCsszYsgz",
+					"target": "apsCsszYsgz"
+				},{
+					"pattern": "apsCsszYsmb",
+					"name": "apsCsszYsmb",
+					"target": "apsCsszYsmb"
+				}
+			],
+			"targets": {
+				"startpage": {
+					"viewId":   "home",
+					"viewName": "Startpage",
+					"viewLevel": 0
+				},
+				"apsNav": {
+					"viewId":	"apsNav",
+					"viewName": "apsNav",
+					"viewPath": "sap.ga.aps.view.aps",
+					"viewLevel": 1
+				},
+				"apsCssz": {
+					"viewId":	"apsCssz",
+					"viewName": "apsCssz",
+					"viewPath": "sap.ga.aps.view.aps",
+					"viewLevel": 2
+				},
+				"apsCsszGltj": {
+					"viewId":	"apsCsszGltj",
+					"viewName": "apsCsszGltj",
+					"viewPath": "sap.ga.aps.view.aps",
+					"viewLevel": 2
+				},
+				"apsCsszYsgz": {
+					"viewId":	"apsCsszYsgz",
+					"viewName": "apsCsszYsgz",
+					"viewPath": "sap.ga.aps.view.aps",
+					"viewLevel": 2
+				},
+				"apsCsszYsmb": {
+					"viewId":	"apsCsszYsmb",
+					"viewName": "apsCsszYsmb",
+					"viewPath": "sap.ga.aps.view.aps",
+					"viewLevel": 2
+				},
+				"notFound": {
+					"viewId":   "notFound",
+					"viewName": "NotFound",
+					"transition":"show"
+				}
+			}
+		}
+	}
+}

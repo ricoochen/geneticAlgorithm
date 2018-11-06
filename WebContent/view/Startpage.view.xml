@@ -1,0 +1,130 @@
+<mvc:View
+	controllerName="sap.ga.aps.controller.Startpage"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:microchart="sap.suite.ui.microchart"
+	backgroundImage="images/startpage.jpg">
+	<Page id="home" title="{i18n>title}">
+		<layout:VerticalLayout class="sapUiResponsiveMargin">
+			<Title
+				titleStyle="H2"
+				text="{i18n>fpHeaderTitle}"
+				class="sapUiTinyMarginBegin" />
+				<layout:HorizontalLayout allowWrapping="true">
+				
+				<!-- 算法应用 -->
+				<GenericTile
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					header="{i18n>fpgaHeaderTitle}"
+					subheader="{i18n>fpgaSubHeaderTitle}"
+					press="onGaProcess">
+					<tileContent >
+						<TileContent footer="{ path: '/date',formatter: '.formatJSONDate' }"> 
+							<content>
+								<ImageContent src="sap-icon://factory" />
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+
+				<!-- ERP集成  -->
+				<GenericTile
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+					header="{i18n>fperpHeaderTitle}"
+					subheader="{i18n>fperpSubHeaderTitle}"
+					press="onErpProcess">
+					<tileContent>
+						<TileContent 
+							footer="{
+									path: '/date',
+									formatter: '.formatJSONDate'
+								}"> 
+							<content>
+								<ImageContent src="sap-icon://work-history" />
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+
+				<!-- 地图定位   -->
+				<GenericTile 
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+					header="{i18n>fpMapHeaderTitle}"
+					frameType="TwoByOne" press="onMappress">
+					<TileContent footer="{ path: '/date',formatter: '.formatJSONDate' }">
+						<FeedContent 
+						contentText="{i18n>fpMapSubHeaderTitle}"
+						subheader="{i18n>fpMapSubHeaderText}" value="0" />
+					</TileContent>
+				</GenericTile>
+
+				<!-- 硬件集成   -->
+				<GenericTile 
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+					header="{i18n>fpHiHeaderTitle}"
+					frameType="TwoByOne" press="onHipress">
+					<TileContent footer="{ path: '/date',formatter: '.formatJSONDate' }">
+						<FeedContent 
+						contentText="{i18n>fpHiSubHeaderTitle}"
+						subheader="{i18n>fpHiSubHeaderText}" value="0" />
+					</TileContent>
+				</GenericTile>
+				
+				<!-- 3D工厂   -->
+				<GenericTile 
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+					header="{i18n>fpTfHeaderTitle}"
+					frameType="TwoByOne" press="onTfpress">
+					<TileContent footer="{ path: '/date',formatter: '.formatJSONDate' }">
+						<FeedContent 
+						contentText="{i18n>fpTfSubHeaderTitle}"
+						subheader="{i18n>fpTfSubHeaderText}" value="0" />
+					</TileContent>
+				</GenericTile>
+				
+				<!-- 人工智能   -->
+				<GenericTile 
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+					header="{i18n>fpAiHeaderTitle}"
+					frameType="TwoByOne" press="onAIpress">
+					<TileContent footer="{ path: '/date',formatter: '.formatJSONDate' }">
+						<FeedContent 
+						contentText="{i18n>fpAiSubHeaderTitle}"
+						subheader="{i18n>fpAiSubHeaderText}" value="0" />
+					</TileContent>
+				</GenericTile>
+				
+				<!-- 大数据分析   -->
+				<GenericTile 
+					class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+					header="{i18n>fpBigdataHeaderTitle}"
+					frameType="TwoByOne" press="onBigdatapress">
+					<TileContent footer="{ path: '/date',formatter: '.formatJSONDate' }">
+						<FeedContent 
+						contentText="{i18n>fpBigdataSubHeaderTitle}"
+						subheader="{i18n>fpBigdataSubHeaderText}" value="0" />
+					</TileContent>
+				</GenericTile>
+					
+			</layout:HorizontalLayout>
+<!-- 			<Title -->
+<!-- 				titleStyle="H2" -->
+<!-- 				text="{i18n>startpageLinksGroupTitle}" -->
+<!-- 				class="sapUiTinyMarginBegin sapUiMediumMarginTop" /> -->
+<!-- 				<layout:HorizontalLayout allowWrapping="true"> -->
+<!-- 					<GenericTile -->
+<!-- 						header="{i18n>startpageLineTile1Title}" -->
+<!-- 						subheader="{i18n>startpageLineTile1SubTitle}" -->
+<!-- 						mode="LineMode" -->
+<!-- 						press="onTilePressed" -->
+<!-- 						class="sapUiTinyMarginBegin" /> -->
+<!-- 					<GenericTile -->
+<!-- 						header="{i18n>startpageLineTile2Title}" -->
+<!-- 						mode="LineMode" -->
+<!-- 						press="onTilePressed" -->
+<!-- 						class="sapUiTinyMarginBegin" /> -->
+<!-- 				</layout:HorizontalLayout> -->
+		</layout:VerticalLayout>
+	</Page>
+</mvc:View>

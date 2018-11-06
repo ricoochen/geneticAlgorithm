@@ -1,0 +1,73 @@
+{
+	"apsNav": [
+		{
+			"apsId": 1,
+			"icon": "sap-icon://Chart-Tree-Map",
+			"name": "APS生产排程-工厂级",
+			"nodes":
+			[
+				{
+					"apsId": 11,
+					"icon": "sap-icon://Chart-Tree-Map",
+					"name":"参数设置",
+					"nodes":
+					[
+						{
+							"apsId": 111,
+							"icon": "sap-icon://Chart-Tree-Map",
+							"name": "过滤条件"
+						},
+						{
+							"apsId": 112,
+							"icon": "sap-icon://Chart-Tree-Map",
+							"name":"约束规则"
+						},
+						{
+							"apsId": 113,
+							"icon": "sap-icon://Chart-Tree-Map",
+							"name":"约束模板"
+						}
+					]			
+				},
+				{
+					"kfswId":12,
+					"icon": "sap-icon://Chart-Tree-Map",
+					"name":"测试执行"				
+				},
+				{
+					"kfswId":13,
+					"icon": "sap-icon://Chart-Tree-Map",
+					"name":"结果分析",
+					"nodes":
+					[
+						{
+							"apsId": 131,
+							"icon": "sap-icon://Chart-Tree-Map",
+							"name": "二维显示"
+						},
+						{
+							"apsId": 132,
+							"icon": "sap-icon://Chart-Tree-Map",
+							"name": "三维显示"
+						},
+						{
+							"apsId": 133,
+							"icon": "sap-icon://Chart-Tree-Map",
+							"name": "结果对比"
+						},
+						{
+							"apsId": 134,
+							"icon": "sap-icon://Chart-Tree-Map",
+							"name": "结果导出"
+						}
+					]					
+				}
+			]
+		},
+		{
+			"kfswId": 2,
+			"icon": "sap-icon://attachment-audio",
+			"name": "其他应用..."
+		}
+	]
+}

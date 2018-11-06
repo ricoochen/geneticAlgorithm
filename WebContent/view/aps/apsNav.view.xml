@@ -1,0 +1,47 @@
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:smartList="sap.ui.comp.smartlist"
+	controllerName="sap.ga.aps.controller.aps.apsNav" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page 
+		id="apsNav" 
+		http-equiv='X-UA-Compatible' 	
+		charset="UTF-8"
+		title="{i18n>apsNavPageTitle}"
+		showNavButton="true"
+		navButtonPress="onapsNavButton"
+		backgroundDesign="Solid" 
+		class="sapUiResponsiveContentPadding">
+
+		<smartList:SmartList 
+			id="apsNavList" 
+			listType="Tree" 
+			entitySet="entity"
+			enableAutoBinding="true" 
+			showRowCount="false"
+			listBindingPath="/">	
+			
+<!-- 		design="Transparent" -->
+			<OverflowToolbar> 
+				<Title text="{i18n>apsNavListSubheader}" />
+				<ToggleButton
+					icon="sap-icon://menu"
+					tooltip="Enable / Disable Custom Context Menu"
+					press="onapsNavListItemPressed" />
+			</OverflowToolbar>
+			
+			<smartList:listItemTemplate entitySet="{apsId}" >
+				<StandardTreeItem  
+					type="Active" 
+					press="onapsNavListItem"  
+					title="{name}" 
+					icon="{icon}"/>
+			</smartList:listItemTemplate>
+		</smartList:SmartList>
+	</Page>
+</mvc:View>
+

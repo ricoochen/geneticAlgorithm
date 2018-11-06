@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
+
+	<title></title>
+
+	<script id="sap-ui-bootstrap"
+			src="resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-xx-bindingSyntax="complex"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"sap.ga.aps": ""}'>
+	</script>
+<!-- data-sap-ui-preload="async" -->
+
+	<script>
+
+		sap.ui.getCore().attachInit(function() {
+			sap.ui.require([
+// 				"sap/ga/aps/localService/mockserver",       mockserver
+				"sap/m/Shell",
+				"sap/ui/core/ComponentContainer"
+			], function( Shell, ComponentContainer) {
+				// mockserver.init();
+				// initialize the UI component
+				new Shell({
+					app: new ComponentContainer({
+						height: "100%",
+						name: "sap.ga.aps"
+					})
+				}).placeAt("content");
+			});
+		});
+	</script>
+</head>
+
+<body class="sapUiBody" id="content">
+</body>
+
+</html>

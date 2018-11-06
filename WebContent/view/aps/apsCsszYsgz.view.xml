@@ -1,0 +1,133 @@
+<mvc:View
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="sap.ga.aps.controller.aps.apsCsszYsgz" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+	<Page 
+		id="apsCsszYsgz"
+		title="{i18n>apsCsszYsgzPageTitle}"
+		showNavButton="true"
+		navButtonPress="onNavBack"
+		backgroundDesign="Solid"
+		class="sapUiResponsiveContentPadding">
+		<content>
+			<Panel
+				id="apsCsszYsgzHeaderPanel"
+				width="auto"
+				class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>apsCsszYsgzHeaderTitle}" level="H2"/>
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm
+						editable="false"
+						width="auto"
+						layout="ResponsiveGridLayout"
+						labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+						columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="{i18n>apsCsszYsgzWerks}"  class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+							<ComboBox
+								id="apsCsszYsgzWerks"
+								require="true"
+								showSecondaryValues= "true"
+								items="{
+									path: 'Plant>/plant',
+									sorter: { path: 'werks' }
+								}">
+								<core:ListItem key="{Plant>werks}" text="{Plant>bztxt}" additionalText = "{Plant>werks}"/>
+							</ComboBox>
+							<Label text="{i18n>apsCsszYsgzFccode}"  class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+							<ComboBox
+								id="apsCsszYsgzFccode"
+								press="onapsCsszYsgzFccode"
+								showSecondaryValues= "true"
+								items="{
+									path: 'Fccode>/', 
+ 									sorter: { path: 'filterConditionCode' } 
+								}"> 
+								<core:ListItem key="{Fccode>filterConditionCode}" text="{Fccode>filterConditionText}" additionalText = "{Fccode>filterConditionCode}"/>
+							</ComboBox>
+						</f:content>
+						<Button	class="sapUiSmallMarginCenter" text="Continue"	press="onapsCsszYsgzContinue" width="auto"/>						
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Table width="auto" noDataText="No data" id="apsCsszYsgzTable" items="{path:'ysgz>/'}">
+		        <items>
+		            <ColumnListItem type="Navigation" press="onItemPress" width="auto">
+		                <cells>
+		                    <Text text="{ysgz>filterConditionCode}"/>
+		                    <Text text="{ysgz>filterConditionText}"/>
+		                    <Text text="{ysgz>groupId}"/>		                    
+		                    <Text text="{ysgz>expression}"/>
+		                    <Text text="{ysgz>aTBEZ}"/>
+		                    <Text text="{ysgz>aTNAM}"/>
+		                    <Text text="{ysgz>aTWRT}"/>
+		                    <Text text="{ysgz>aTWTB}"/>
+		                </cells>
+		            </ColumnListItem>
+		        </items>
+		        <columns width="auto">
+		            <Column id="apsCsszYsgzTbCode">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbCode}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszYsgzTbText">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbText}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszYsgzTbGroup">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbGroup}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszYsgzTbExpre">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbExpre}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszYsgzTbAtbez">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbAtbez}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszYsgzTbAtnam">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbAtnam}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszYsgzTbAtwrt">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbAtwrt}"/>
+		                </header>
+		            </Column>
+		            <Column id="apsCsszYsgzTbAtwtb">
+		                <header>
+		                    <Label text="{i18n>apsCsszYsgzTbAtwtb}"/>
+		                </header>
+		            </Column>
+		        </columns>
+	      	</Table>
+		</content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button icon="sap-icon://create" text="Create" press="onCreate"/>
+                    <Button icon="sap-icon://edit"	 text="Edit"   press="onEdit"/>
+                    <Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
+                </contentRight>
+            </Bar>
+        </footer>
+	</Page>
+	</App>
+</mvc:View>

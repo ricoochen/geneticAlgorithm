@@ -1,0 +1,18 @@
+{
+	"News1": [
+		{
+			"content": "The best ice cream I've had in years!",
+			"subheader": "Early Adopter of the ice cream machine",
+			"date": "2016-12-07T09:42:32.910Z",
+			"image": "images/ice-cream.jpg",
+			"state": null
+		},
+		{
+			"content": "Your first ice cream? Don't worry. There are plenty of recipes available.",
+			"subheader": "Find your favorite recipe",
+			"date": "2016-12-06T00:00:00.000Z",
+			"image": "images/penguins.jpg",
+			"state": null
+		}
+	]
+}

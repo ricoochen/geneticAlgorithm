@@ -1,0 +1,300 @@
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:m="sap.m"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	controllerName="sap.ga.aps.controller.aps.apsCssz" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	
+	<Page 
+		id="apsCssz" 
+		http-equiv="X-UA-Compatible"
+		charset="UTF-8"
+		title="{i18n>apsCsszPageTitle}"
+		showNavButton="true"
+		navButtonPress="onapsCsszButton"
+		backgroundDesign="Solid" 
+		class="sapUiResponsiveContentPadding">     
+    
+		<content>
+			<Panel 
+				width="auto"
+				class="sapUiResponsiveMargin">
+				<f:SimpleForm 
+					class="sapUiResponsiveMargin"
+					layout="ResponsiveGridLayout"
+					editable="true"										
+					width="auto"
+					labelSpanL="3" 
+					labelSpanM="3" 
+					emptySpanL="4" 
+					emptySpanM="4"
+					columnsL="1" 
+					columnsM="1"
+					title = "{i18n>apsCsszCondition}">
+					<Label 	
+						textAlign="Left"					
+						text="{i18n>apsCsszTempCode}"  
+						class = "sapUiSmallMarginCenter" 
+						labelFor="InputValueHelp"/>   
+					<Input
+						id="apsCsszTempCodeInput"						
+						type="Text"
+						class="sapUiSmallMarginCenter" 
+						textFormatMode="KeyValue"
+						placeholder="Enter Constraint Rule Template..."
+						enabled="true"
+						editable="true"
+						showValueHelp="true"
+						valueHelpRequest="handleValueHelp"
+						suggestionItems="{ct>/}"
+						suggestionItemSelected="suggestionItemSelected">
+						<suggestionItems>
+							<core:ListItem key="{ct>templateCode}" text="{ct>templateText}" additionalText="{ct>templateCode}" />
+						</suggestionItems>
+					</Input>
+					<Button	text="Continue"	press="onapsCsszContinue"/>
+				</f:SimpleForm>
+			</Panel>
+			<Panel 				
+				class="sapUiResponsiveMargin"
+				width="auto">
+				<IconTabBar class="sapUiSmallMarginBottom sapUiResponsiveContentPadding">				
+					<items>
+						<IconTabFilter
+							text="{i18n>apsCsszYsmbTitle}">
+							<t:Table
+								id="apsCsszYsmbTable"
+								selectionMode="None"
+								rows="{ysmb>/}"
+								visibleRowCount="5"
+								editable="false"
+								enableCellFilter="{}"
+								filter="filterConditionCode"
+								ariaLabelledBy="title">
+								<t:columns>
+									<t:Column
+										width="10rem">
+										<m:Label text="{i18n>apsCsszysmbTemplateCode}"/>
+										<t:template>
+											<m:Text text="{ysmb>templateCode}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="4rem"
+										filterProperty="ordinal">
+										<m:Label text="{i18n>apsCsszysmbordinal}"/>
+										<t:template>
+											<m:Text text="{ysmb>ordinal}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="5rem"
+										filterProperty="filterConditionCode">
+										<m:Label text="{i18n>apsCsszysmbFilterConditionCode}"/>
+										<t:template>
+											<m:Text text="{ysmb>filterConditionCode}" wrapping="false" />
+										</t:template>
+									</t:Column>										
+							    	<t:Column
+										width="5rem"
+										filterProperty="constraintruleCode">
+										<m:Label text="{i18n>apsCsszysmbConstraintRuleCode}"/>
+										<t:template>
+											<m:Text text="{ysmb>constraintRuleCode}" wrapping="false" />
+										</t:template>
+									</t:Column>	
+													
+							    	<t:Column
+										width="4rem" hAlign="End">
+										<m:Label text="{i18n>apsCsszysmbFromday}"/>
+										<t:template>
+											<m:Text text="{ysmb>fromDay}" wrapping="false" />
+										</t:template>
+									</t:Column>		
+							    	<t:Column
+										width="4rem" hAlign="End">										
+										<m:Label text="{i18n>apsCsszysmbToday}"/>
+										<t:template>
+											<m:Text text="{ysmb>toDay}" wrapping="false" />
+										</t:template>
+									</t:Column>		
+							    	<t:Column
+										width="4rem"
+										filterProperty="Minvalue">
+										<m:Label text="{i18n>apsCsszysmbMinValue}"/>
+										<t:template>
+											<m:Text text="{ysmb>minValue}" wrapping="false" />
+										</t:template>
+									</t:Column>			
+							    	<t:Column
+										width="4rem">
+										<m:Label text="{i18n>apsCsszysmbMaxValue}"/>
+										<t:template>
+											<m:Text text="{ysmb>maxValue}" wrapping="false" />
+										</t:template>
+									</t:Column>		
+							    	<t:Column
+										width="4rem">
+										<m:Label text="{i18n>apsCsszysmbGroupSize}"/>
+										<t:template>
+											<m:Text text="{ysmb>groupSize}" wrapping="false" />
+										</t:template>
+									</t:Column>		
+							    	<t:Column
+										width="5rem"
+										filterProperty="PrevConditionCode">
+										<m:Label text="{i18n>apsCsszysmbPrevConditionCode}"/>
+										<t:template>
+											<m:Text text="{ysmb>prevConditionCode}" wrapping="false" />
+										</t:template>
+									</t:Column>	
+							    	<t:Column
+										width="5rem"
+										filterProperty="NextConditionCode">
+										<m:Label text="{i18n>apsCsszysmbNextConditionCode}"/>
+										<t:template>
+											<m:Text text="{ysmb>nextConditionCode}" wrapping="false" />
+										</t:template>
+									</t:Column>	
+							    	<t:Column
+										width="5rem">
+										<m:Label text="{i18n>apsCsszysmbWeight}"/>
+										<t:template>
+											<m:Text text="{ysmb>weight}" wrapping="false" />
+										</t:template>
+									</t:Column>	
+							    	<t:Column
+										width="4rem"
+										filterProperty="HardFlag">
+										<m:Label text="{i18n>apsCsszysmbHardFlag}"/>
+										<t:template>
+											<m:Text text="{ysmb>hardFlag}" wrapping="false" />
+										</t:template>
+									</t:Column>	
+								</t:columns>
+							</t:Table>
+						</IconTabFilter>
+						<IconTabFilter
+							text="{i18n>apsCsszGltjTitle}">
+
+							<t:Table
+								id="apsCsszGltjTable"
+								selectionMode="None"
+								rows="{gltj>/}"
+								firstVisibleRow="0"
+								visibleRowCount="5"
+								editable="false"
+								enableCellFilter="{}"
+								filter="filterConditionCode"
+								ariaLabelledBy="title">
+								<t:columns>
+									<t:Column
+										width="5rem"
+										filterProperty="ConditionCode">
+										<m:Label text="{i18n>apsCsszgltjfilterConditionCode}"/>
+										<t:template>
+											<m:Text text="{gltj>filterConditionCode}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="10rem"
+										filterProperty="ConditionText">
+										<m:Label text="{i18n>apsCsszgltjfilterConditionText}"/>
+										<t:template>
+											<m:Text text="{gltj>filterConditionText}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="4rem"
+										filterProperty="groupid">
+										<m:Label text="{i18n>apsCsszgltjgroupid}"/>
+										<t:template>
+											<m:Text text="{gltj>groupId}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="4rem"
+										filterProperty="ATBEZ">
+										<m:Label text="{i18n>apsCsszgltjATBEZ}"/>
+										<t:template>
+											<m:Text text="{gltj>aTBEZ}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="10rem"
+										filterProperty="ATNAM">
+										<m:Label text="{i18n>apsCsszgltjATNAM}"/>
+										<t:template>
+											<m:Text text="{gltj>aTNAM}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="4rem"
+										filterProperty="ATWRT">
+										<m:Label text="{i18n>apsCsszgltjATWRT}"/>
+										<t:template>
+											<m:Text text="{gltj>aTWRT}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="10rem"
+										filterProperty="ATWTB">
+										<m:Label text="{i18n>apsCsszgltjATWTB}"/>
+										<t:template>
+											<m:Text text="{gltj>aTWTB}" wrapping="false" />
+										</t:template>
+									</t:Column>
+								</t:columns>
+							</t:Table>
+						</IconTabFilter>
+						<IconTabFilter
+							text="{i18n>apsCsszYsgzTitle}">
+							<t:Table
+								id="apsCsszYsgzTable"
+								selectionMode="None"
+								rows="{ysgz>/}"
+								visibleRowCount="5"
+								editable="false"
+								enableCellFilter="{}"
+								filter="filterConditionCode"
+								ariaLabelledBy="title">
+								<t:columns>
+									<t:Column
+										width="5rem">
+										<m:Label text="{i18n>apsCsszysgzConstraintRuleCode}"/>
+										<t:template>
+											<m:Text text="{ysgz>constraintRuleCode}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="15rem"
+										filterProperty="groupid">
+										<m:Label text="{i18n>apsCsszysgzConstraintRuleText}"/>
+										<t:template>
+											<m:Text text="{ysgz>constraintRuleText}" wrapping="false" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="4rem"
+										filterProperty="ATBEZ">
+										<m:Label text="{i18n>apsCsszysgzCategory}"/>
+										<t:template>
+											<m:Text text="{ysgz>category}" wrapping="false" />
+										</t:template>
+									</t:Column>									
+								</t:columns>
+							</t:Table>
+						</IconTabFilter>
+
+					</items>
+				</IconTabBar>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>
